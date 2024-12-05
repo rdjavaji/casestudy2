@@ -1,0 +1,11 @@
+account_id,customer_id,account_type,balance
+1,1,Checking,1000
+2,1,Savings,5000
+3,2,Checking,1500
+4,2,Investment,7500
+5,3,Savings,2000
+6,4,Checking,3000
+7,5,Checking,2500
+8,6,Savings,6000
+9,7,Investment,8000
+10,8,Checking,1200
