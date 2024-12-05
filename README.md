@@ -75,6 +75,8 @@ Datasets: Datasets were created for each data source to define the schema and st
 
 - After cleaning and aggregating the data, the final result was written to the Gold container, ready for downstream analysis or reporting.
 
+[pyspark] (https://github.com/rdjavaji/casestudy2/blob/main/Azure%20Databricks/processing.ipynb)
+
 ## Azure Synapse Analytics:
 
 - Created an external table in Azure Synapse Analytics to to enable querying the processed data. This step allowed users to run SQL queries over the Gold container's data for reporting, analysis, and decision-making.
