@@ -71,17 +71,23 @@ Datasets: Datasets were created for each data source to define the schema and st
 ##### Data Aggregation and Joins:
 
 - Data was read from the Silver container, and several aggregation operations (e.g., summing transaction amounts) were performed.
+- Data Shuffling with groupBy(), Salting were performed.
 - A join operation was executed on the transactions and customers tables using salted keys to minimize skew and ensure better distribution of the data.
 
 ##### Saving Final Data (Gold Container):
 
 - After cleaning and aggregating the data, the final result was written to the Gold container, ready for downstream analysis or reporting.
 
-[pyspark] (https://github.com/rdjavaji/casestudy2/blob/main/Azure%20Databricks/Processing%20Final.ipynb)
+[pyspark] (https://github.com/rdjavaji/casestudy2/blob/main/Azure%20Databricks/Processing-Final.ipynb)
+
+##### Day 2 - Identify Data Skew 
+
+- Performed Group transactions by account_id and calculate the total transaction amount for each customer. As customers have many more transactions than others, this result in a skewed dataset
+- transactions_grouped result was written to Gold container, ready for downstream analysis or reporting.
 
 ## Azure Synapse Analytics:
 
-- Created an external table in Azure Synapse Analytics to to enable querying the processed data. This step allowed users to run SQL queries over the Gold container's data for reporting, analysis, and decision-making.
+- Created an external table in Azure Synapse Analytics to enable querying the processed data. This step allowed users to run SQL queries over the Gold container's data for reporting, analysis, and decision-making.
 
 ## GitHub Pull Request: 
 
