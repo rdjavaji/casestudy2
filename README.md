@@ -12,6 +12,8 @@ parameterised pipelines for processing and transforming data. Performing data cl
 - Created multiple tables for customers, accounts, transactions, loans, and loan payments to simulate a financial system.
 - Inserted sample data into these tables representing customers, their bank accounts, transactions, loans, and loan payments.
 
+[Query] (https://github.com/rdjavaji/casestudy2/blob/main/SQL%20Server%20SSMS/query.sql)
+
 ## GitHub Repository and Data Upload (Considering the data for HTTP API):
 
 - Created a GitHub repository and uploaded a file named ecommers containing customer data. This file served as an HTTP source for the data pipeline in Azure.
