@@ -88,7 +88,7 @@ Datasets: Datasets were created for each data source to define the schema and st
 ## Azure Synapse Analytics:
 
 - Created Synapse Analytics with the name: "synapse-casestudy2"
-- Created dedicated pool. 
+- Dedicated Pool creation. 
 - Linked Services: Linked services were set up to connect.
 - Pipeline: Transferred data from data lake to data lake house
 - Created an external table in Azure Synapse Analytics to enable querying the processed data. This step allowed users to run SQL queries over the Gold container's data for reporting, analysis, and decision-making.
