@@ -1,0 +1,85 @@
+﻿External Table
+
+
+-- Example for creating an external data source for the Silver container
+CREATE EXTERNAL DATA SOURCE SilverDataSource2
+WITH (
+LOCATION = 'abfss://silver@myrgstore.dfs.core.windows.net'
+);
+
+
+-- Example for creating an external data source for the Gold container
+CREATE EXTERNAL DATA SOURCE GoldDataSource2
+WITH (
+LOCATION = 'abfss://silver@myrgstore.dfs.core.windows.net'
+);
+
+
+-- Example for creating a CSV file format
+CREATE EXTERNAL FILE FORMAT CsvFileFormat2
+WITH (
+FORMAT_TYPE = DELIMITEDTEXT,
+FORMAT_OPTIONS (FIELD_TERMINATOR = ',', STRING_DELIMITER = '"', FIRST_ROW = 2)
+);
+
+
+CREATE TABLE customer_new(
+customer_id INT,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+address VARCHAR(50),
+city VARCHAR(50),
+state VARCHAR(50),
+zip VARCHAR(50)
+);
+
+
+
+
+
+
+
+
+Gold 
+IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat')
+    CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
+    WITH ( FORMAT_TYPE = PARQUET)
+GO
+
+
+IF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'gold_mystoragecase2_dfs_core_windows_net')
+    CREATE EXTERNAL DATA SOURCE [gold_mystoragecase2_dfs_core_windows_net]
+    WITH (
+        LOCATION = 'abfss://gold@mystoragecase2.dfs.core.windows.net'
+    )
+GO
+
+
+CREATE EXTERNAL TABLE dbo.customer_external (
+    [transaction_id] int,
+    [account_id] int,
+    [transaction_date] date,
+    [transaction_amount] float,
+    [transaction_type] nvarchar(4000),
+    [salted_customer_id] int,
+    [customer_id] int,
+    [first_name] nvarchar(4000),
+    [last_name] nvarchar(4000),
+    [address] nvarchar(4000),
+    [city] nvarchar(4000),
+    [state] nvarchar(4000),
+    [postal_code] int,
+    [salted_customer_id_duplicate] int
+    )
+    WITH (
+    LOCATION = 'delta/**',
+    DATA_SOURCE = [gold_mystoragecase2_dfs_core_windows_net],
+    FILE_FORMAT = [SynapseParquetFormat]
+    )
+GO
+
+
+
+
+SELECT TOP 100 * FROM dbo.customer_external
+GO
