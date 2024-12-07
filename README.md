@@ -1,4 +1,4 @@
-# Casestudy2
+# Casestudy2 - Data Lake Warehouse
 
 This casestudy demonstrate ingesting data from database server and http API into the datalake storage account. Performing data cleaning and transformations, and storing the results in an Azure Data Lake house and Synapse Analytics.
 
