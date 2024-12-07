@@ -48,6 +48,13 @@ Datasets: Datasets were created for each data source to define the schema and st
 - Scheduled Trigger for 7 days.
 - Data Storage: The Raw container now contained both SQL Server data and the HTTP data from the ecommers file.
 
+## GitHub Pull Request: 
+
+- Created New resource group with name: my_rg
+- Created New Azure data Factory: pr_adf1
+- Configured Github branch as "QA" to Azure Data factory
+- Created Pull Request from branch Dev to QA
+
 ## Azure Databricks:
 
 - Azure Databricks was created with name "casestudy2_databricks" and created a cluster, folder, Notebook. 
@@ -92,13 +99,6 @@ Datasets: Datasets were created for each data source to define the schema and st
 - Linked Services: Linked services were set up to connect.
 - Pipeline: Transferred data from data lake to data lake house
 - Created an external table in Azure Synapse Analytics to enable querying the processed data. This step allowed users to run SQL queries over the Gold container's data for reporting, analysis, and decision-making.
-
-## GitHub Pull Request: 
-
-- Created New resource group with name: my_rg
-- Created New Azure data Factory: pr_adf1
-- Configured Github branch as "QA" to Azure Data factory
-- Created Pull Request from branch Dev to QA
 
 
 
